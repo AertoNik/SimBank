@@ -336,8 +336,29 @@
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .sidebar { display: none; }
-            .bottom-nav { display: flex; justify-content: space-around; padding: 10px 5px; }
-            .bottom-nav .nav-item { flex-direction: column; padding: 8px 0; gap: 4px; font-size: 10px; flex: 1; text-align: center; justify-content: center; font-weight: 600;}
+            .bottom-nav {
+                display: flex;
+                justify-content: flex-start;
+                padding: 10px 5px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+            }
+            .bottom-nav::-webkit-scrollbar { display: none; }
+            .bottom-nav .nav-item {
+                flex-direction: column;
+                padding: 8px 5px;
+                gap: 4px;
+                font-size: 11px;
+                flex-shrink: 0;
+                min-width: 76px;
+                text-align: center;
+                justify-content: center;
+                font-weight: 600;
+                scroll-snap-align: start;
+            }
             .bottom-nav .nav-item svg { margin: 0 auto; width: 24px; height: 24px;}
             .bottom-nav .nav-item.active::before { display: none; }
             .main-content { padding: 20px; padding-bottom: 100px; }
